@@ -469,9 +469,9 @@ def getDrawRecordHasCoupon(headers, pin, actorUuid, user):
                         allcount[i['value'] + '京豆'] = int(beanNum)
                 else:
                     try:
-                        allcount['礼品'] += '###' + i['value']
+                        allcount['礼品'] += '###' + i['infoName']
                     except:
-                        allcount['礼品'] = i['value']
+                        allcount['礼品'] = i['infoName']
             allList.append(allcount)
     except:
         pass
@@ -592,7 +592,7 @@ def start():
     for k in countbean:
         msg(f"用户[{k}], 获得京豆:{countbean[k]}")
         allbean += countbean[k]
-    msg("=" * 40)
+    msg("*" * 40)
     msg("### 【累计】")
     allUserBean = 0
     for c in allList:

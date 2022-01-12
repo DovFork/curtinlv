@@ -351,7 +351,7 @@ def startDraw(header, actorUuid, pin, user,winery):
                 # return True
             else:
                 printf(f"\t😆{resp['errorMessage']}")
-                # return False
+                return False
         return True
     except:
         return False
@@ -495,7 +495,7 @@ def getDrawRecordHasCoupon(headers, pin, actorUuid, user):
                         allcount[i['value'] + '京豆'] = int(beanNum)
                 else:
                     try:
-                        allcount['礼品'] += '###' + i['infoName']
+                        allcount['礼品'] += '+' + i['infoName']
                     except:
                         allcount['礼品'] = i['infoName']
             allList.append(allcount)
@@ -565,7 +565,6 @@ def start():
                 #     pass
             else:
                 printf("\t😆开卡任务已完成!")
-
             if a == 1:
                 printf(f"用户{a}[{nickname}]>助力>>[Author]{shareUuid}")
                 shareuserid4minipg = pin
@@ -580,13 +579,16 @@ def start():
             a += 1
             print(f"[{nickname}]的助力码:{shareUuid}")
         except:
+            a += 1
             continue
     # 用户1抽奖
     try:
         print("用户1抽奖")
         for i in range(13):
             sleep(1)
-            startDraw(Masterheader, shareUuid, shareuserid4minipg, Masternickname, i + 1)
+            result = startDraw(Masterheader, shareUuid, shareuserid4minipg, Masternickname, i + 1)
+            if not result:
+                break
     except:
         pass
     # end
@@ -631,6 +633,7 @@ def start():
     msg("*" * 40)
     msg("### 【累计】")
     allUserBean = 0
+    liwuCount = ''
     for c in allList:
         usetBean = 0
         try:
@@ -642,12 +645,16 @@ def start():
                 if '京豆' in i:
                     usetBean += c[i]
                     allUserBean += c[i]
+                if '+' in i:
+                    liwuCount += c[i]
             msg(f"\t└累计获得京豆: {usetBean}")
         except:
             continue
         msg('-'*20)
     msg(f"本次总获得: {allbean} 京豆")
     msg(f"累计总获得: {allUserBean} 京豆")
+    if liwuCount:
+        msg(f"恭喜您获得礼物: {liwuCount}")
     msg("*" * 40)
     msg(footer)
     if isNotice == "true":

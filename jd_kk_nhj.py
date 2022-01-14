@@ -263,28 +263,32 @@ def getMyPing(cookie, token):
         return False, False, False
 
 def accessLog(headers,pin, shareUuid, shareuserid4minipg):
-    sid = ''.join(random.sample('123456789abcdef123456789abcdef123456789abcdef123456789abcdef', 32))
-    accbody = f'venderId={activityshopid}&code=99&pin={quote(pin)}&activityId={activityId}&pageUrl={pageUrl}{random_num}?activityId={activityId}&shareUuid={shareUuid}&adsource=null&shareuserid4minipg={quote(shareuserid4minipg)}&shopid={activityshopid}&sid=&un_area=&subType=app&adSource=null'
-    accbody = f'venderId={activityshopid}&code=99&pin={quote(pin)}&activityId={activityId}&pageUrl=https%3A%2F%2Flzdz1-isv.isvjcloud.com%2Fdingzhi%2Fcustomized%2Fcommon%2Factivity%3FactivityId={activityId}&sid={sid}&un_area=&subType=app&adSource='
-    url = accessLogWithAD_url
-    resp = requests.post(url=url, headers=headers, timeout=30, data=accbody)
-    if resp.status_code == 200:
-        LZ_TOKEN = re.findall(r'(LZ_TOKEN_KEY=.*?;).*?(LZ_TOKEN_VALUE=.*?;)', resp.headers['Set-Cookie'])
-        headers = {
-            'X-Requested-With': 'XMLHttpRequest',
-            'Connection': 'keep-alive',
-            'Accept-Encoding': 'gzip, deflate, br',
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Origin': 'https://lzdz1-isv.isvjcloud.com',
-            'User-Agent': userAgent(),
-            'Cookie': LZ_TOKEN[0][0] + LZ_TOKEN[0][1],
-            'Host': 'lzdz1-isv.isvjcloud.com',
-            'Referer': buildheaders_url,
-            'Accept-Language': 'zh-cn',
-            'Accept': 'application/json'
-        }
-        return headers
-    else:
+    try:
+        sid = ''.join(random.sample('123456789abcdef123456789abcdef123456789abcdef123456789abcdef', 32))
+        # accbody = f'venderId={activityshopid}&code=99&pin={quote(pin)}&activityId={activityId}&pageUrl={pageUrl}{random_num}?activityId={activityId}&shareUuid={shareUuid}&adsource=null&shareuserid4minipg={quote(shareuserid4minipg)}&shopid={activityshopid}&sid=&un_area=&subType=app&adSource=null'
+        accbody = f'venderId={activityshopid}&code=99&pin={quote(pin)}&activityId={activityId}&pageUrl=https%3A%2F%2Flzdz1-isv.isvjcloud.com%2Fdingzhi%2Fcustomized%2Fcommon%2Factivity%3FactivityId={activityId}&sid={sid}&un_area=&subType=app&adSource='
+        url = accessLogWithAD_url
+        resp = requests.post(url=url, headers=headers, timeout=30, data=accbody)
+        if resp.status_code == 200:
+            LZ_TOKEN = re.findall(r'(LZ_TOKEN_KEY=.*?;).*?(LZ_TOKEN_VALUE=.*?;)', resp.headers['Set-Cookie'])
+            headers = {
+                'X-Requested-With': 'XMLHttpRequest',
+                'Connection': 'keep-alive',
+                'Accept-Encoding': 'gzip, deflate, br',
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Origin': 'https://lzdz1-isv.isvjcloud.com',
+                'User-Agent': userAgent(),
+                'Cookie': LZ_TOKEN[0][0] + LZ_TOKEN[0][1],
+                'Host': 'lzdz1-isv.isvjcloud.com',
+                'Referer': buildheaders_url,
+                'Accept-Language': 'zh-cn',
+                'Accept': 'application/json'
+            }
+            return headers
+        else:
+            return headers
+    except Exception as e:
+        printf(e)
         return headers
 
 def writePersonInfo(header, pin):
@@ -319,7 +323,7 @@ def assist(header, pin,shareUuid):
         pass
     else:
         pass
-
+    wait_time(2, 3)
     url = assist_status_url
     body = f'activityId={activityId}&pin={quote(pin)}&shareUuid={shareUuid}'
     resp = requests.post(url=url, headers=header, timeout=30, data=body)
@@ -338,7 +342,7 @@ def activityContent(header, pin, shareUuid, pinImg, nick, shareuserid4minipg, ag
     body = f'activityId={activityId}&pin={quote(pin)}&pinImg={pinImg}&nick={quote(nick)}&cjyxPin=&cjhyPin=&shareUuid='
     header['Cookie'] += f'AUTH_C_USER={quote(pin)};'
     # header['Content-Length'] = 329
-    header['Referer'] = f'https://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity/{random_num}?activityId={activityId}&shareUuid={shareUuid}&adsource=null&shareuserid4minipg={shareuserid4minipg}&shopid={activityshopid}&'
+    header['Referer'] = f'https://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity/{random_num}?activityId={activityId}&shareUuid={shareUuid}&adsource=null&shareuserid4minipg={quote(shareuserid4minipg)}&shopid={activityshopid}&'
     try:
         resp = requests.post(url=url, headers=header, data=body)
         if resp.status_code == 200:
@@ -686,8 +690,6 @@ def start():
             venderIdList, channelList, allShopID = checkOpenCard(header, pin)
             wait_time(1, 3)
             bindWithVender(ck, venderIdList, channelList, pin, header)
-            wait_time(1, 2)
-            assist(header, pin, one_shareUuid)
             # 浏览任务
             browseShops(header, pin, allShopID[random.randint(0, 9)])
             # for i in allShopID:
@@ -695,7 +697,7 @@ def start():
                 # browseShops(header, pin, i)
             wait_time(2, 3)
             # 抽奖
-            header = accessLog(header, pin, one_shareUuid, one_shareuserid4minipg)
+            # header = accessLog(header, pin, one_shareUuid, one_shareuserid4minipg)
             wait_time(1, 2)
             actorUuid, shareTitle, score = activityContent(header, pin, one_shareUuid, yunMidImageUrl, nickname, one_shareuserid4minipg)
             # printf(score)
@@ -709,10 +711,14 @@ def start():
                 one_shareUuid = actorUuid
                 one_shareuserid4minipg = pin
                 one_name = user
+            wait_time(1, 2)
+            assist(header, pin, one_shareUuid)
             a += 1
             wait_time(kk_vip_sleep, kk_vip_sleep, "###休息一会")
         except Exception as e:
             printf(f"ERROR MAIN {e}")
+            if a == 1:
+                exit(0)
             a += 1
             continue
 

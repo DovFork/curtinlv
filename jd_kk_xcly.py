@@ -7,11 +7,10 @@ Author: Curtin
 Date: 2022/1/15 05:30
 TG交流 https://t.me/topstyle996
 TG频道 https://t.me/TopStyle2021
-cron: 20 11,20 14-21 1 *
-new Env('超级年货节 惊喜不打烊1.14-1.21')
-活动入口：20:/#239s57fgLQaxO@，嚯！囤大牌年货，赢惊喜大奖
-https://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity/5719961?activityId=dzlhkkkbblnt20220114&shareUuid=33df44d05fd54de391a30f8e6df273bf&adsource=null&shareuserid4minipg=wqdHuFdMJj0bcG7ysk0r8mwklxRrP5C78lmKjh9Mn4avAmNuF4i+OHS9NlRdtagP&shopid=1000001195&
-
+cron: 20 10,21 * 1-2 *
+new Env('新春礼遇 数倍加码1.12-2.10')
+活动入口：
+https://lzdz1-isv.isvjcloud.com/dingzhi/trainingcamp/interaction/activity/8655764?activityId=dz2201100000406501&shareUuid=4ef5a0ee24ee4909844bbc176bd10951&adsource=null&shareuserid4minipg=wqdHuFdMJj0bcG7ysk0r8mwklxRrP5C78lmKjh9Mn4avAmNuF4i+OHS9NlRdtagP&shopid=1000004123
 '''
 import requests
 import os
@@ -30,8 +29,8 @@ except:
     print("请先下载依赖脚本后执行一次，\n下载链接：https://ghproxy.com/https://raw.githubusercontent.com/curtinlv/JD-Script/main/jd_tool_dl.py")
     sys.exit(3)
 
-g_name = '超级年货节 惊喜不打烊1.14-1.21'
-get_url = 'https://gitee.com/curtinlv/Public/raw/master/kk/nhj.json'
+g_name = '新春礼遇 数倍加码1.12-2.10'
+get_url = 'https://gitee.com/curtinlv/Public/raw/master/kk/xcly.json'
 
 # 是否发送通知, 关闭通知：export kk_vip_isNotice="false"
 isNotice = "true"
@@ -51,12 +50,12 @@ if "kk_vip_sleep" in os.environ:
 
 # 如果您有UA可填
 UserAgent = ''
-activityId='dzlhkkkbblnt20220114'
-activityshopid='1000001195'
+activityId='dz2201100000406501'
+activityshopid='1000004123'
 jdActivityId='10713953'
-random_num = '3293765'
+random_num = '8655764'
 
-master_shareUuid = '33df44d05fd54de391a30f8e6df273bf'
+master_shareUuid = '4ef5a0ee24ee4909844bbc176bd10951'
 master_shareuserid4minipg = 'wqdHuFdMJj0bcG7ysk0r8mwklxRrP5C78lmKjh9Mn4avAmNuF4i+OHS9NlRdtagP'
 
 # url
@@ -68,36 +67,31 @@ getMyPing_url = 'https://lzdz1-isv.isvjcloud.com/customer/getMyPing'
 getUserInfo_url = 'https://lzdz1-isv.isvjcloud.com/wxActionCommon/getUserInfo'
 #3
 accessLogWithAD_url = 'https://lzdz1-isv.isvjcloud.com/common/accessLogWithAD'
-pageUrl = 'https://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity/'
+pageUrl = 'https://lzdz1-isv.isvjcloud.com/dingzhi/trainingcamp/interaction/activity/'
 #4 活动活动详情
-activityContent_url = 'https://lzdz1-isv.isvjcloud.com/dingzhi/linkgame/activity/content'
-#5 关注
-followshop_url = 'https://lzdz1-isv.isvjcloud.com/dingzhi/opencard/follow/shop'
-#6 加购
-addCart_url = 'https://lzdz1-isv.isvjcloud.com/dingzhi/opencard/addCart'
-#7 开卡
-checkOpenCard_url = 'https://lzdz1-isv.isvjcloud.com/dingzhi/linkgame/checkOpenCard' # 检测开卡状态
-#8 领券获取金币
-sendAllCoupon_url = 'https://lzdz1-isv.isvjcloud.com/dingzhi/linkgame/sendAllCoupon'
-#9 获取金牌信息
-list_url = 'https://lzdz1-isv.isvjcloud.com/dingzhi/linkgame/rank/list'
-#10 浏览
-browseShops_url = 'https://lzdz1-isv.isvjcloud.com/dingzhi/opencard/browseShops'
+activityContent_url = 'https://lzdz1-isv.isvjcloud.com/dingzhi/trainingcamp/interaction/activityContent'
+#5
+drawContent_url = 'https://lzdz1-isv.isvjcloud.com/dingzhi/taskact/common/drawContent'
+#6
+initOpenCard_url = 'https://lzdz1-isv.isvjcloud.com/dingzhi/trainingcamp/interaction/initOpenCard' # 检测开卡状态
+#7
+getSystemConfigForNew = 'https://lzdz1-isv.isvjcloud.com/wxCommonInfo/getSystemConfigForNew'
+# 'https://lzdz1-isv.isvjcloud.com/dingzhi/trainingcamp/interaction/activity/8655764?activityId=dz2201100000406501&shareUuid=f4d822efc99942bdbfc6807a1fb03a6c'
+#8 获取品牌id
+getCardMaterial_url = 'https://crmsam.jd.com/union/getCardMaterial?activityId=&token='
+
+#9 我的奖品
+getDrawRecordHasCoupon_url = 'https://lzdz1-isv.isvjcloud.com/dingzhi/taskact/common/getDrawRecordHasCoupon'
+
 #11 访问记录
 insertCrmPageVisit_url = 'https://lzdz1-isv.isvjcloud.com/crm/pageVisit/insertCrmPageVisit'
-writePersonInfo_url = 'https://lzdz1-isv.isvjcloud.com/interaction/write/writePersonInfo'
 #12 抽奖
 draw_url = 'https://lzdz1-isv.isvjcloud.com/dingzhi/opencard/draw'
-#13 奖品
-record_url = 'https://lzdz1-isv.isvjcloud.com/dingzhi/linkgame/draw/record'
-#14
-assist_status_url ='https://lzdz1-isv.isvjcloud.com/dingzhi/linkgame/assist/status'
-assist_url ='https://lzdz1-isv.isvjcloud.com/dingzhi/linkgame/assist'
 
 # token
-isvObfuscator_body = f'body=%7B%22url%22:%22https:%5C/%5C/lzdz1-isv.isvjcloud.com%22,%22id%22:%22%22%7D&build=167870&client=apple&clientVersion=10.2.4&d_brand=apple&d_model=iPhone10,3&ef=1&ep=%7B%22ciphertype%22:5,%22cipher%22:%7B%22screen%22:%22CJOyDIeyDNC2%22,%22wifiBssid%22:%22{random_num}=%22,%22osVersion%22:%22CJGkCm==%22,%22area%22:%22CJvpCJYmCV8zDtCzXzYzCtGz%22,%22openudid%22:%22ENK5DNK5Y2TuDWTsEQOmZwO4ZwZwDNOzDzrtCWPwZJunYtqmDzVrZK==%22,%22uuid%22:%22%22%7D,%22ts%22:1642168167,%22hdid%22:%22JM9F1ywUPwflvMIpYPok0tt5k9kW4ArJEU3lfLhxBqw=%22,%22version%22:%221.0.3%22,%22appname%22:%22com.360buy.jdmobile%22,%22ridx%22:-1%7D&ext=%7B%22prstate%22:%220%22%7D&isBackground=N&partner=TF&rfs=0000&scope=01&sign=6d8df3d5ca7c31c71f759394f4a9b385&st=1642168175902&sv=120'
+isvObfuscator_body = f'body=%7B%22url%22%3A%22https%3A%5C/%5C/lzdz1-isv.isvjcloud.com%22%2C%22id%22%3A%22%22%7D&build=167870&client=apple&clientVersion=10.2.4&d_brand=apple&d_model=iPhone10%2C3&ef=1&&ep=%7B%22ciphertype%22%3A5%2C%22cipher%22%3A%7B%22screen%22%3A%22CJOyDIeyDNC2%22%2C%22wifiBssid%22%3A%22{random_num}%3D%22%2C%22osVersion%22%3A%22CJGkCm%3D%3D%22%2C%22area%22%3A%22{random_num}%22%2C%22openudid%22%3A%22ENK5DNK5Y2TuDWTsEQOmZwO4ZwZwDNOzDzrtCWPwZJunYtqmDzVrZK%3D%3D%22%2C%22uuid%22%3A%22%22%7D%2C%22ts%22%3A1642199846%2C%22hdid%22%3A%22%3D%22%2C%22version%22%3A%221.0.3%22%2C%22appname%22%3A%22com.360buy.jdmobile%22%2C%22ridx%22%3A-1%7D&ext=%7B%22prstate%22%3A%220%22%7D&isBackground=N&joycious=87&lang=zh_CN&networkType=wifi&networklibtype=JDNetworkBaseAF&partner=TF&rfs=0000&scope=01&sign=bb5a801e8990acd4da57a06525ff711e&st=1642205022716&sv=120&'
 # 获取请求头
-buildheaders_url = f'https://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activityhttps://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity/{random_num}?activityId={activityId}&'
+buildheaders_url = f'https://lzdz1-isv.isvjcloud.com/dingzhi/trainingcamp/interaction/activity/{random_num}?activityId={activityId}&shareUuid={master_shareUuid}&adsource=null&shareuserid4minipg={master_shareuserid4minipg}&shopid={activityshopid}'
 
 
 def printf(*args):
@@ -208,8 +202,7 @@ def isvObfuscator(ck):
 
 def buildheaders(ck, shareUuid, shareuserid4minipg):
     sid = ''.join(random.sample('123456789abcdef123456789abcdef123456789abcdef123456789abcdef', 32))
-    # url = buildheaders_url + f'shareUuid={shareUuid}&adsource=null&shareuserid4minipg={shareuserid4minipg}&shopid={activityshopid}&sid={sid}&un_area='
-    url = f'https://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity/{random_num}?activityId={activityId}&shareUuid={shareUuid}&adsource=null&shareuserid4minipg={shareuserid4minipg}&shopid=undefined'
+    url = f'https://lzdz1-isv.isvjcloud.com/dingzhi/trainingcamp/interaction/activity/{random_num}?activityId={activityId}&shareUuid={shareUuid}&adsource=null&shareuserid4minipg={shareuserid4minipg}&shopid={activityshopid}'
     headers = {
         'Accept-Encoding': 'gzip, deflate, br',
         'Cookie': ck,
@@ -291,15 +284,6 @@ def accessLog(headers,pin, shareUuid, shareuserid4minipg):
         printf(e)
         return headers
 
-def writePersonInfo(header, pin):
-    try:
-        url = writePersonInfo_url
-        body = f'jdActivityId={jdActivityId}&pin={quote(pin)}&actionType=4&venderId={activityshopid}&activityId={activityId}'
-        resp = requests.post(url=url, headers=header, timeout=30, data=body)
-        if resp.status_code == 200:
-            pass
-    except Exception as e:
-        print("writePersonInfo",e)
 
 
 # 访问记录
@@ -314,24 +298,7 @@ def insertCrmPageVisit(header, pin,shop_value):
     else:
         pass
 
-# 助力
-def assist(header, pin,shareUuid):
-    url = assist_url
-    body = f'activityId={activityId}&pin={quote(pin)}&shareUuid={shareUuid}'
-    resp = requests.post(url=url, headers=header, timeout=30, data=body)
-    if resp.status_code == 200:
-        pass
-    else:
-        pass
-    wait_time(2, 3)
-    url = assist_status_url
-    body = f'activityId={activityId}&pin={quote(pin)}&shareUuid={shareUuid}'
-    resp = requests.post(url=url, headers=header, timeout=30, data=body)
 
-    if resp.status_code == 200:
-        pass
-    else:
-        pass
 
 def activityContent(header, pin, shareUuid, pinImg, nick, shareuserid4minipg, agin=1):
     url = activityContent_url
@@ -339,24 +306,22 @@ def activityContent(header, pin, shareUuid, pinImg, nick, shareuserid4minipg, ag
         pinImg = quote_plus(pinImg)
     except:
         pinImg = ''
-    body = f'activityId={activityId}&pin={quote(pin)}&pinImg={pinImg}&nick={quote(nick)}&cjyxPin=&cjhyPin=&shareUuid='
+    body = f'activityId={activityId}&pin={quote(pin)}&pinImg={pinImg}&nick={quote(nick)}&cjyxPin=&cjhyPin=&shareUuid={shareUuid}'
     header['Cookie'] += f'AUTH_C_USER={quote(pin)};'
-    # header['Content-Length'] = 329
-    header['Referer'] = f'https://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity/{random_num}?activityId={activityId}&shareUuid={shareUuid}&adsource=null&shareuserid4minipg={quote(shareuserid4minipg)}&shopid={activityshopid}&'
+    header['Referer'] = f'https://lzdz1-isv.isvjcloud.com/dingzhi/trainingcamp/interaction/activity/{random_num}?activityId={activityId}&shareUuid={shareUuid}&adsource=null&shareuserid4minipg={quote(shareuserid4minipg)}&shopid={activityshopid}&'
     try:
         resp = requests.post(url=url, headers=header, data=body)
         if resp.status_code == 200:
             resp = resp.json()
-            actorUuid = resp['data']['actor']['actorUuid']
-            shareTitle = resp['data']['activity']['shareTitle']
-            score = resp['data']['actor']['score']
-            return actorUuid, shareTitle, score
+            actorUuid = resp['data']['actorUuid']
+            shareTitle = resp['data']['shareTitle']
+            return actorUuid, shareTitle
         else:
             printf(f"activityContent req [{resp.text}]")
-            return 0, '', 0
+            return 0, ''
     except Exception as e:
         if agin > 6:
-            return 0, '', 0
+            return 0, ''
         else:
             wait_time(30, 60, f"获取助力码失败，尝试重新获取{agin}")
             agin += 1
@@ -374,72 +339,63 @@ def getUserInfo(header, pin):
     secretPin = resp['data']['secretPin']
     return yunMidImageUrl, secretPin, nickname
 
-def checkOpenCard(header, pin):
-    url = checkOpenCard_url
-    body = f'pin={quote(pin)}&activityId={activityId}'
-    allShopID = []
-    try:
-        resp = requests.post(url=url, headers=header, data=body).json()
+def drawContent(header, pin):
+    url = drawContent_url
+    body = f'activityId={activityId}&pin={quote(pin)}'
+    resp = requests.post(url=url, headers=header, data=body).json()
+
+def initOpenCard(header, pin, actorUuid, shareUuid):
+    url = initOpenCard_url
+    body = f'activityId={activityId}&pin={quote(pin)}&actorUuid={actorUuid}&shareUuid={shareUuid}'
+    all_token = []
+    # try:
+    resp = requests.post(url=url, headers=header, data=body)
+    if resp.status_code == 200:
+        resp = resp.json()
         # printf(json.dumps(resp, indent=4, ensure_ascii=False))
         if resp['result']:
-            # 检测是否完成开卡任务
-            allShopID
-            openCardList = resp['data']['openCardList']
-            for i in openCardList:
-                allShopID.append(i['venderId'])
-            if resp['data']['allOpenCard']:
-                printf("\t😆已完成开卡任务")
-                return [], [], allShopID
-            else:
-                venderIdList = []
-                channelList = []
-                for i in openCardList:
-                    if i['status'] == 0:
-                        toUrl = i['toUrl']
-                        venderId = re.findall(r'venderId=(\d+)', toUrl)[0]
-                        channel = re.findall(r'channel=(\d+)', toUrl)[0]
-                        venderIdList.append(venderId)
-                        channelList.append(channel)
-                return venderIdList, channelList, allShopID
+            data = resp['data']
+            AllOpenCard_status = []
+            for d in data:
+                if 'AllOpenCard' in d:
+                    if not data[d]:
+                        # 截取未完成开卡的
+                        tmp = "{}".format(d)
+                        id = tmp.split('AllOpenCard')[0]
+                        AllOpenCard_status.append(id)
+            if data['beans'] > 0:
+                printf(f"\t完成开卡获得京豆{data['beans']}")
+            for i in AllOpenCard_status:
+                for e in data:
+                    if f'{i}OpenCardUrl' == e:
+                        t = re.findall(r'https://crmsam\.jd\.com/union/index\.html\?token=(.*?)&url=', data[e])
+                        if len(t)>0:
+                            all_token.append(t[0])
+            return all_token
         else:
             printf(resp['errorMessage'])
-            return [], [], allShopID
-    except Exception as e:
-        printf(f"checkOpenCard[{e}]")
-        return [], [], allShopID
+            return all_token
+    else:
+        printf(resp.status_code, resp.text)
+        return all_token
+    # except Exception as e:
+    #     printf(f"initOpenCard[{e}]")
+    #     return all_token
 
 
-# 抽奖
-def draw(header, pin, actorUuid, user):
-    url = draw_url
-    # body = f'activityId={activityId}&pin={quote(pin)}&{actorUuid}'
-    body = f'activityId={activityId}&actorUuid={actorUuid}&pin={quote(pin)}'
-    try:
-    # printf("去抽奖！")
-        resp = requests.post(url=url, headers=header, data=body)
-        # printf(resp.status_code)
-        if resp.status_code == 200:
-            resp = resp.json()
-            if resp['data']['drawOk']:
-                printf(f"\t☺️[{user}]抽奖获得: {resp['data']['name']}️")
-            else:
-                printf(f"\t😭 没中奖~ [{resp['data']['name']}] {resp['data']['errorMessage']}")
-        else:
-            printf(f"{resp.text}")
-    except Exception as e:
-        printf(f"draw [{e}]")
 
-# 奖品统计
-def record(header, pin, actorUuid,user):
+# 我的奖品
+def getDrawRecordHasCoupon(header, pin, actorUuid,user):
     global allUserBean
-    url = record_url
-    body = f'activityId={activityId}&pin={quote(pin)}&{actorUuid}'
+    url = getDrawRecordHasCoupon_url
+    body = f'activityId={activityId}&pin={quote(pin)}&actorUuid={actorUuid}'
     try:
         resp = requests.post(url=url, headers=header, data=body)
         if resp.status_code == 200:
             resp = resp.json()
             if resp['result']:
-                recordList = resp['data']['recordList']
+                # print(resp)
+                recordList = resp['data']
                 if recordList:
                     for i in recordList:
                         if '京豆' in i['infoName']:
@@ -454,104 +410,12 @@ def record(header, pin, actorUuid,user):
                             except:
                                 allUserBean[f'{user}_yes'] = i['infoName']
             else:
-                printf(resp.text)
+                # printf(f"\t😭 没中奖~ [{resp['data']['name']} ]")
+                print(resp.text)
     except Exception as e:
-        printf(f"record [{e}]")
+        printf(f"getDrawRecordHasCoupon [{e}]")
 
-# 关注
-def followShop(header, pin, user):
-    url = followshop_url
-    body = f'activityId={activityId}&pin={quote(pin)}'
-    printf("#去完成关注任务~")
-    resp = requests.post(url=url, headers=header, data=body).json()
-    if resp['result']:
-        printf(f"已完成关注任务")
-        addScore = resp['data']['addScore']
-        addBeanNum = resp['data']['addBeanNum']
-        if addScore > 0:
-            printf(f"\t☺️关注获得: {resp['data']['addScore']} 金币️")
-        if addBeanNum > 0:
-            printf(f"\t☺️关注获得: {resp['data']['addScore']} 京豆️")
-    else:
-        printf(f"\t😆{resp['errorMessage']}")
-# 浏览
-def browseShops(header, pin, shop_value):
-    try:
-        printf(f"#去做浏览任务 {shop_value}")
-        insertCrmPageVisit(header, pin, f'%E5%BA%97%E9%93%BA{shop_value}')
-        wait_time(1, 2)
-        writePersonInfo(header, pin)
-        wait_time(2, 3, "模拟浏览任务")
-        url = browseShops_url
-        body = f'activityId={activityId}&pin={quote(pin)}&value={shop_value}'
-        resp = requests.post(url=url, headers=header, data=body)
-        if resp.status_code == 200:
-            resp = resp.json()
-            if resp['result']:
-                printf(f"已完成浏览任务 {shop_value}")
-                addScore = resp['data']['addScore']
-                addBeanNum = resp['data']['addBeanNum']
-                if addScore > 0:
-                    printf(f"\t☺️浏览获得: {resp['data']['addScore']} 金币️")
-                if addBeanNum > 0:
-                    printf(f"\t☺️浏览获得: {resp['data']['addScore']} 京豆️")
-            else:
-                printf(f"\t😆{resp['errorMessage']}")
-        else:
-            printf(f"\t😆browseShops[{resp.text}]")
-    except Exception as e:
-        printf(f"browseShops, {e}")
 
-# 加购
-def addCart(header, pin, user):
-    url = addCart_url
-    body = f'activityId={activityId}&pin={quote(pin)}'
-    printf("#去完成加购任务~")
-    resp = requests.post(url=url, headers=header, data=body).json()
-    if resp['result']:
-        printf(f"已完成加购任务")
-        addScore = resp['data']['addScore']
-        addBeanNum = resp['data']['addBeanNum']
-        if addScore > 0:
-            printf(f"\t☺️加购获得: {resp['data']['addScore']} 金币️")
-        if addBeanNum > 0:
-            printf(f"\t☺️加购获得: {resp['data']['addScore']} 京豆️")
-    else:
-        printf(f"\t😆{resp['errorMessage']}")
-
-# 领券获取金币
-def sendAllCoupon(header, pin, user):
-    url = sendAllCoupon_url
-    body = f'activityId={activityId}&pin={quote(pin)}'
-    printf("#去完成领券任务~")
-    resp = requests.post(url=url, headers=header, data=body).json()
-    if resp['result']:
-        printf(f"已完成领券任务")
-        addScore = resp['data']['addScore']
-        # addBeanNum = resp['data']['addBeanNum']
-        if addScore > 0:
-            printf(f"\t☺️加购获得: {resp['data']['addScore']} 金币️")
-    else:
-        printf(f"\t😆{resp['errorMessage']}")
-
-# 获取金牌信息
-def getlist(header, pin, user):
-    url = list_url
-    scoreTotal, myRank = 0, 0
-    body = f'activityId={activityId}&pin={quote(pin)}'
-    resp = requests.post(url=url, headers=header, data=body)
-    if resp.status_code == 200:
-        resp = resp.json()
-        if resp['result']:
-            scoreTotal = resp['data']['scoreTotal']
-            myRank = resp['data']['myRank']
-            return scoreTotal, myRank
-        else:
-            printf(f"\t😆{resp['errorMessage']}")
-            return scoreTotal, myRank
-    else:
-        printf("getlist Error")
-        return scoreTotal, myRank
 
 
 def getShopOpenCardInfo(ck, venderId, channe, headers):
@@ -576,6 +440,74 @@ def getShopOpenCardInfo(ck, venderId, channe, headers):
         return activityId
     else:
         return None
+def getCardMaterial(ck, token):
+    try:
+        brandIds = []
+        headers = {
+            'Cookie': ck,
+            'Accept': '*/*',
+            'Connection': 'keep-alive',
+            'Referer': 'https://shopmember.m.jd.com/',
+            'Accept-Encoding': 'gzip, deflate, br',
+            'Content-Type':	'application/json;charset=UTF-8',
+            'Host': 'crmsam.jd.com',
+            'User-Agent': userAgent(),
+            'Accept-Language': 'zh-CN,zh-Hans;q=0.9',
+            'referer': f'https://crmsam.jd.com/union/index.html?token={token}&url=https%3A%2F%2Flzdz1-isv.isvjcloud.com%2Fdingzhi%2Ftrainingcamp%2Finteraction%2Factivity%2F{random_num}%3FactivityId%3D{activityId}%26shareUuid%3D{master_shareUuid}'
+        }
+        url = getCardMaterial_url + token
+        resp = requests.get(url, headers=headers, timeout=30)
+        if resp.status_code == 200:
+            resp = resp.json()
+            if '查询成功' in resp['message']:
+                data = resp['data']
+                for i in data:
+                    brandIds.append(i['brandId'])
+            return brandIds
+
+        else:
+            printf(f"{resp.text}")
+            return brandIds
+    except Exception as e:
+        print(f"getCardMaterial [{e}]")
+        return brandIds
+
+def submitBindCards(ck, brandsIds, pin, header, token):
+    url = 'https://crmsam.jd.com/union/submitBindCards'
+    headers = {
+        'Cookie': ck,
+        'Accept': '*/*',
+        'Connection': 'keep-alive',
+        'Referer': 'https://shopmember.m.jd.com/',
+        'Accept-Encoding': 'gzip, deflate, br',
+        'Content-Type': 'application/json;charset=UTF-8',
+        'Host': 'crmsam.jd.com',
+        'User-Agent': userAgent(),
+        'Accept-Language': 'zh-CN,zh-Hans;q=0.9',
+        'referer': f'https://crmsam.jd.com/union/index.html?token={token}&url=https%3A%2F%2Flzdz1-isv.isvjcloud.com%2Fdingzhi%2Ftrainingcamp%2Finteraction%2Factivity%2F{random_num}%3FactivityId%3D{activityId}%26shareUuid%3D{master_shareUuid}'
+    }
+    body = {
+        "phone": None,
+        "smsCode": None,
+        "brandsIds": brandsIds,
+        "bindChannel": False,
+        "activityId": "",
+        "token": token
+    }
+    resp = requests.post(url, headers=headers, data=json.dumps(body))
+    if resp.status_code == 200:
+        if resp.json()['message'] == 'SUCCESS':
+            data = resp.json()['data']
+            for i in data:
+                printf(i)
+        else:
+            printf(f"开卡失败~")
+    else:
+        printf(resp.status_code)
+        printf(resp.text)
+
+
+
 
 def bindWithVender(ck, venderIdList, channelList,pin,header):
     headers = {
@@ -589,7 +521,7 @@ def bindWithVender(ck, venderIdList, channelList,pin,header):
         'Accept-Language': 'zh-CN,zh-Hans;q=0.9'
     }
     for v, c in zip(venderIdList, channelList):
-        insertCrmPageVisit(header, pin, "%E5%85%A5%E4%BC%9A%E8%B7%B3%E8%BD%AC")
+        insertCrmPageVisit(header, pin, "%E5%8E%BB%E5%BC%80%E5%8D%A1")
         wait_time(0,1)
         act = getShopOpenCardInfo(ck, v, c, headers)
         if act:
@@ -637,7 +569,7 @@ def isUpdate():
 
 def start():
     global shareuserid4minipg, Masternickname, one_shareUuid, one_shareuserid4minipg, one_name
-    if datetime.datetime.now() > datetime.datetime.strptime('2022-1-22', "%Y-%m-%d"):
+    if datetime.datetime.now() > datetime.datetime.strptime('2022-2-11', "%Y-%m-%d"):
         printf("活动结束\n请删掉脚本")
         exit(3)
     isok, hdtitle, readme, code, footer = isUpdate()
@@ -645,7 +577,7 @@ def start():
         printf(readme)
         exit(0)
     printf(f"开始：【{hdtitle}】")
-    one_name = '仅账号一作者 Curtin，其他全部助力账号一'
+    one_name = '仅账号一助力 Curtin，其他全部助力账号一'
     one_shareUuid = code.split("&")[0]
     one_shareuserid4minipg = code.split("&")[1]
     cookieList, nameList = getCk.iscookie()
@@ -675,34 +607,20 @@ def start():
             wait_time(1, 3)
             header = accessLog(header, pin, one_shareUuid, one_shareuserid4minipg)
             wait_time(1, 2)
-            # 关注
-            followShop(header, pin, user)
-            wait_time(1, 2)
-            # 加购
-            addCart(header, pin, user)
-            wait_time(2, 4)
-            #领券获取金币
-            wait_time(2, 4)
-            sendAllCoupon(header, pin, user)
+            actorUuid, shareTitle = activityContent(header, pin, one_shareUuid, yunMidImageUrl, nickname,one_shareuserid4minipg)
             # 开卡
             printf("#去完成开卡任务~")
-            venderIdList, channelList, allShopID = checkOpenCard(header, pin)
-            wait_time(1, 3)
-            bindWithVender(ck, venderIdList, channelList, pin, header)
-            # 浏览任务
-            browseShops(header, pin, allShopID[random.randint(0, 9)])
-            # for i in allShopID:
-                # wait_time(10, 11, "浏览任务")
-                # browseShops(header, pin, i)
-            wait_time(2, 3)
-            # 抽奖
-            # header = accessLog(header, pin, one_shareUuid, one_shareuserid4minipg)
             wait_time(1, 2)
-            actorUuid, shareTitle, score = activityContent(header, pin, one_shareUuid, yunMidImageUrl, nickname, one_shareuserid4minipg)
-            # printf(score)
-            if score > 100:
-                wait_time(2, 4, "点击抽奖")
-                draw(header, pin, actorUuid, user)
+            alltoken = initOpenCard(header, pin, actorUuid, one_shareUuid)
+            wait_time(1, 3)
+            if len(alltoken) > 0:
+                for i in alltoken:
+                    brandsIds = getCardMaterial(ck, i)
+                    if len(brandsIds) > 0:
+                        wait_time(3, 6, "一键开卡")
+                        submitBindCards(ck, brandsIds, pin, header, i)
+            else:
+                wait_time(2, 3, "\t已完成全部开卡")
             if a == 1:
                 if actorUuid == 0:
                     printf("账号一获取助力码失败~，请重新尝试运行。")
@@ -710,8 +628,6 @@ def start():
                 one_shareUuid = actorUuid
                 one_shareuserid4minipg = pin
                 one_name = user
-            wait_time(1, 2)
-            assist(header, pin, one_shareUuid)
             if not a == len(cookieList):
                 a += 1
                 wait_time(kk_vip_sleep, kk_vip_sleep, "###休息一会")
@@ -721,10 +637,10 @@ def start():
                 exit(0)
             a += 1
             continue
-
+#################################
     a = 1
     printf("\n【收获统计】")
-    scoreTotalList, myRankList, userList, scoreList = [],[],[],[]
+    userList = []
     one_shareUuid = master_shareUuid
     one_shareuserid4minipg = master_shareuserid4minipg
     for ck, user in zip(cookieList, nameList):
@@ -744,19 +660,11 @@ def start():
                 printf(f"️##😭账号{a}【{user}】暂无法参加活动~")
                 a += 1
                 continue
-            wait_time(0, 1)
-            # try:
-            # yunMidImageUrl, pin, nickname = getUserInfo(header, pin)
-            wait_time(0, 1)
-            actorUuid, shareTitle, score = activityContent(header, pin, one_shareUuid, '', nickname, one_shareuserid4minipg)
-            # 获取金牌信息、排行榜
-            scoreTotal, myRank = getlist(header, pin, user)
-            scoreTotalList.append(scoreTotal)
-            scoreList.append(score)
-            myRankList.append(myRank)
-            userList.append(user)
+            wait_time(1, 2)
+            actorUuid, shareTitle = activityContent(header, pin, one_shareUuid, '', nickname, one_shareuserid4minipg)
             # 奖品
-            record(header, pin, actorUuid, user)
+            getDrawRecordHasCoupon(header, pin, actorUuid, user)
+            userList.append(user)
             if a == 1:
                 one_shareUuid = actorUuid
                 one_shareuserid4minipg = pin
@@ -774,7 +682,7 @@ def start():
     a = 1
     for u in userList:
         try:
-            msg(f"账号{a}[{u}] \n\t└当前金币{scoreList[n]} 累计金币{scoreTotalList[n]} 排名{myRankList[n]}")
+            msg(f"账号{a}[{u}]")
             for m in allUserBean:
                 if m == u:
                     msg(f"\t\t└获得京豆: {allUserBean[u]}")

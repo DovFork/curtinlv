@@ -455,6 +455,7 @@ def draw(header, pin, actorUuid, user, agin=1):
             LZ_TOKEN = re.findall(r'(LZ_TOKEN_KEY=.*?;).*?(LZ_TOKEN_VALUE=.*?;)', resp.headers['Set-Cookie'])
             header['Cookie'] = LZ_TOKEN[0][0] + LZ_TOKEN[0][1] + f'AUTH_C_USER={quote(pin)};'
             resp = resp.json()
+            print(resp)
             if resp['data']['drawOk']:
                 printf(f"\t☺️[{user}]抽奖获得: {resp['data']['name']}️")
             else:
@@ -828,6 +829,8 @@ def start():
                     wait_time(2, 4, f"点击抽奖{i+1}")
                     if header:
                         header = draw(header, pin, actorUuid, user)
+                    else:
+                        break
             if a == 1:
                 if actorUuid == 0:
                     printf("账号一获取助力码失败~，请重新尝试运行。")

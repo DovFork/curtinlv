@@ -8,8 +8,8 @@ Date: 2022/1/15 05:30
 TG交流 https://t.me/topstyle996
 TG频道 https://t.me/TopStyle2021
 cron: 20 11,20 21-29 1 *
-new Env('大牌好礼带回家1.21-1.29')
-活动入口：https://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity/5063373?activityId=dzlhkkkbblnt20220121&=&shareUuid=5c1e7599b34c4100bbc5b8968178591b
+new Env('年货不打烊 好物带回家1.21-1.29')
+活动入口：https://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity/7864313?activityId=dzlhkkkbblnt20220121A&shareUuid=269030c0bcc3456f840c12f87d199608
 
 '''
 import requests
@@ -29,8 +29,8 @@ except:
     print("请先下载依赖脚本后执行一次，\n下载链接：https://ghproxy.com/https://raw.githubusercontent.com/curtinlv/JD-Script/main/jd_tool_dl.py")
     sys.exit(3)
 
-g_name = '大牌好礼带回家1.21-1.29'
-get_url = 'https://gitee.com/curtinlv/Public/raw/master/kk/122-1.json'
+g_name = '年货不打烊 好物带回家1.21-1.29'
+get_url = 'https://gitee.com/curtinlv/Public/raw/master/kk/122-2.json'
 
 # 是否发送通知, 关闭通知：export kk_vip_isNotice="false"
 isNotice = "true"
@@ -50,12 +50,12 @@ if "kk_vip_sleep" in os.environ:
 
 # 如果您有UA可填
 UserAgent = ''
-activityId='dzlhkkkbblnt20220121'
-activityshopid='1000310642'
-jdActivityId='10724311'
-random_num = '5063373'
+activityId='dzlhkkkbblnt20220121A'
+activityshopid='1000040084'
+jdActivityId='10723512'
+random_num = '7864313'
 
-master_shareUuid = '5c1e7599b34c4100bbc5b8968178591b'
+master_shareUuid = '269030c0bcc3456f840c12f87d199608'
 master_shareuserid4minipg = 'wqdHuFdMJj0bcG7ysk0r8mwklxRrP5C78lmKjh9Mn4avAmNuF4i+OHS9NlRdtagP'
 
 # url
@@ -97,9 +97,9 @@ assist_url ='https://lzdz1-isv.isvjcloud.com/dingzhi/linkgame/assist'
 goodsCode_url= 'https://lzdz1-isv.isvjcloud.com/dingzhi/linkgame/task/opencard/info'
 
 # token
-isvObfuscator_body = f'body=%7B%22url%22%3A%22https%3A%5C/%5C/lzdz1-isv.isvjcloud.com%22%2C%22id%22%3A%22%22%7D&build=167874&client=apple&clientVersion=10.2.4&d_brand=apple&d_model=iPhone14%2C3&ef=1&eid=&ep=%7B%22ciphertype%22%3A5%2C%22cipher%22%3A%7B%22screen%22%3A%22CJS4DMeyDzc4%22%2C%22wifiBssid%22%3A%22%3D%22%2C%22osVersion%22%3A%22%3D%3D%22%2C%22area%22%3A%22%22%2C%22openudid%22%3A%22DtVwZtvvZJcmZwPtDtc5DJSmCtZvDzLsCzK2DJG2DtU1EWG5Dzc2ZK%3D%3D%22%2C%22uuid%22%3A%22aQf1ZRdxb2r4ovZ1EJZhcxYlVNZSZz09%22%7D%2C%22ts%22%3A1642831467%2C%22hdid%22%3A%22JM9F1ywUPwflvMIpYPok0tt5k9kW4ArJEU3lfLhxBqw%3D%22%2C%22version%22%3A%221.0.3%22%2C%22appname%22%3A%22com.360buy.jdmobile%22%2C%22ridx%22%3A-1%7D&ext=%7B%22prstate%22%3A%220%22%7D&isBackground=N&joycious=60&lang=zh_CN&networkType=wifi&networklibtype=JDNetworkBaseAF&partner=apple&rfs=0000&scope=01&sign=1b8c6071cf4b01923fdb6c77ccfce7df&st=1642833227484&sv=112'
+isvObfuscator_body = f'body=%7B%22url%22%3A%22https%3A%5C/%5C/lzdz1-isv.isvjcloud.com%22%2C%22id%22%3A%22%22%7D&build=167870&client=apple&clientVersion=10.2.4&d_brand=apple&d_model=iPhone10%2C3&ef=1&eid=eidI00fe8122c3s4Oej2gJRvRqGF6AkcrmqNsjno9/E1MAFcXqJWQWtFLn%2BNruY7umGQv1pwQE8APqQd9ubwT8t5V2JujMXHUxXPYqiFldgfvCv/39NP&ep=%7B%22ciphertype%22%3A5%2C%22cipher%22%3A%7B%22screen%22%3A%22CJOyDIeyDNC2%22%2C%22wifiBssid%22%3A%22YwZ{random_num}K3Ytu3DwY3ZNDwDtVtYJY3YtczC2S%3D%22%2C%22osVersion%22%3A%22CJGkCm%3D%3D%22%2C%22area%22%3A%22CJvpCJYmCV8zDtCzXzYzCtGz%22%2C%22openudid%22%3A%22ENK5DNK5Y2TuDWTsEQOmZwO4ZwZwDNOzDzrtCWPwZJunYtqmDzVrZK%3D%3D%22%2C%22uuid%22%3A%22aQf1ZRdxb2r4ovZ1EJZhcxYlVNZSZz09%22%7D%2C%22ts%22%3A1642840085%2C%22hdid%22%3A%22JM9F1ywUPwflvMIpYPok0tt5k9kW4ArJEU3lfLhxBqw%3D%22%2C%22version%22%3A%221.0.3%22%2C%22appname%22%3A%22com.360buy.jdmobile%22%2C%22ridx%22%3A-1%7D&ext=%7B%22prstate%22%3A%220%22%7D&isBackground=N&joycious=60&lang=zh_CN&networkType=wifi&networklibtype=JDNetworkBaseAF&partner=TF&rfs=0000&scope=01&sign=ca47f9951bf902d8c0565968624af19e&st=1642840123585&sv=102'
 # 获取请求头
-buildheaders_url = f'https://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity/6796577?activityId={activityId}&'
+buildheaders_url = f'https://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity/7864313?activityId={activityId}&'
 
 
 def printf(*args):
@@ -210,8 +210,8 @@ def isvObfuscator(ck):
 
 def buildheaders(ck, shareUuid, shareuserid4minipg):
     sid = ''.join(random.sample('123456789abcdef123456789abcdef123456789abcdef123456789abcdef', 32))
-    # url = buildheaders_url + f'shareUuid={shareUuid}&adsource=null&shareuserid4minipg={shareuserid4minipg}&shopid={activityshopid}&sid={sid}&un_area='
-    url = f'https://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity/{random_num}?activityId={activityId}&shareUuid={shareUuid}&adsource=null&shareuserid4minipg={shareuserid4minipg}&shopid=undefined'
+    url = buildheaders_url + f'shareUuid={shareUuid}&adsource=null&shareuserid4minipg={shareuserid4minipg}&shopid={activityshopid}&sid={sid}&un_area='
+    # url = f'https://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity/{random_num}?activityId={activityId}&shareUuid={shareUuid}&adsource=null&shareuserid4minipg={shareuserid4minipg}&shopid=undefined'
     headers = {
         'Accept-Encoding': 'gzip, deflate, br',
         'Cookie': ck,
@@ -737,7 +737,7 @@ def isUpdate():
         else:
             return False, hdtitle, readme, code, footer
     except:
-        return False, f'{g_name}', '', f'{master_shareUuid}&{master_shareuserid4minipg}', 'TG频道 https://t.me/TopStyle2021\n活动入口：20:/#239s57fgLQaxO@，嚯！囤大牌年货，赢惊喜大奖'
+        return False, f'{g_name}', '', f'{master_shareUuid}&{master_shareuserid4minipg}', 'TG频道 https://t.me/TopStyle2021\n活动入口：https://lzdz1-isv.isvjcloud.com/dingzhi/customized/common/activity/7864313?activityId=dzlhkkkbblnt20220121A&shareUuid=269030c0bcc3456f840c12f87d199608'
 
 
 
@@ -797,7 +797,7 @@ def start():
             wait_time(1, 3)
             bindWithVender(ck, venderIdList, channelList, pin, header)
             # 浏览任务
-            goodsCodeList = ['100017224819', '100022439326', '100031711544', '100030236452', '100002554682', '100027621102', '10033879578686', '10839629659', '100006955496','100017224833','100029814570','100024975580','100024658178','100007346824','100027714810','10031892728476','20396208227','100006970791']
+            goodsCodeList = []
             printf(f"#去做浏览任务")
             for i in goodsCodeList:
                 wait_time(0, 1, f"浏览任务{i}")
